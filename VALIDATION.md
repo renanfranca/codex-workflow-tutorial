@@ -8,6 +8,12 @@ O tutorial vive neste repositório independente. A preparação deve gerar somen
 o guia e o ignore locais, inicializar Git quando apropriado e instalar as skills.
 O exercício é produzido nos chats posteriores, com aprovação da especificação.
 
+O único ambiente do roteiro é **VS Code no Windows com a extensão Codex
+executando no WSL2**. Git, Python 3, a pasta do exercício e as seis skills
+pertencem à mesma distribuição e ao usuário Linux dessa execução. O destino
+de instalação é `$HOME/.agents/skills` na home Linux efetiva. Todos os prompts,
+o guia gerado e as verificações de descoberta seguem esse contexto.
+
 Os contratos das seis skills e os metadados `agents/openai.yaml` foram lidos na
 fonte local e comparados com a revisão pública
 `075ea3ffb228e596bdb3b2b3ca769aad858b31cd` de
@@ -33,12 +39,19 @@ A revisão inclui as referências obrigatórias de `refactor-design`.
 - Links locais: verificador
   [check_markdown_links.py](https://github.com/renanfranca/codex-skills/blob/075ea3ffb228e596bdb3b2b3ca769aad858b31cd/restructure-documentation/scripts/check_markdown_links.py)
   da fonte, recebendo `README.md` e `VALIDATION.md`, código 0.
-- Links externos de referência e instalação: oito URLs consultadas sem
-  autenticação, todas com HTTP 200.
-- Roteiro local: extração entre os marcadores conferida, oito etapas em ordem
-  e 876 palavras incluindo os prompts. A 250 palavras por minuto, a leitura
-  estimada é de 3,5 minutos, sem ações de interface. Essa estimativa não
-  substitui a cronometragem. Whitespace e quebra de linha final conferidos.
+- Links externos de referência: consultados sem autenticação, todos com
+  HTTP 200, incluindo as orientações oficiais de WSL2 e da configuração
+  `chatgpt.runCodexInWindowsSubsystemForLinux` da extensão.
+- Consistência do roteiro: oito etapas preservadas, todos os prompts situam a
+  execução no WSL2 e as instruções de preparação usam ferramentas Linux,
+  `python3 -X utf8` e a home Linux para instalar as seis skills. O guia local
+  recebe distribuição, caminhos e comandos desse ambiente.
+- Comandos Linux: `git --version`, `python3 --version`, resolução dos dois
+  executáveis e importação de `unittest`/`venv` conferidas num shell cujo kernel
+  identifica WSL2. Isso não demonstra execução pela extensão.
+- Whitespace e quebra de linha final conferidos. A meta de cinco minutos
+  permanece pendente de cronometragem na extensão; contagem de palavras não
+  substitui essa verificação.
 - Distribuição das skills: clone temporário da revisão pública, comparação
   SHA-256 dos **14 arquivos** das seis pastas com a fonte local e com cópias em
   destino temporário; todos idênticos. Inclui metadados e ambas as referências
@@ -58,14 +71,17 @@ A revisão inclui as referências obrigatórias de `refactor-design`.
 
 ## Verificações ainda pendentes na extensão
 
-Não foi encontrado pacote da extensão Codex nos inventários locais consultados
-do VS Code Windows e do servidor WSL. Não houve execução interativa na extensão.
+Na inspeção inicial não foi encontrado pacote da extensão Codex nos inventários
+locais consultados do VS Code Windows e do servidor WSL2. Não houve execução
+interativa na extensão com o roteiro atualizado para WSL2.
 Assim, permanecem **não verificados**:
 
 - Receber somente a URL e executar a preparação, incluindo a recuperação
   “Siga este tutorial”.
-- Instalação nos dois ambientes efetivos, descoberta no seletor/contexto e
-  ativação observada de cada skill durante os respectivos chats.
+- Conexão do VS Code e execução dos comandos da extensão na distribuição WSL2
+  selecionada, incluindo a recuperação quando o processo estiver fora dela.
+- Instalação das seis skills na home Linux dessa distribuição, descoberta no
+  seletor/contexto e ativação observada durante os respectivos chats.
 - Rerun da preparação reconhecendo exercício existente sem sobrescrever nada;
   tratamento interativo de ferramentas ausentes e autoria não configurada.
 - Resultado de execução dos prompts, incluindo evidências red/green reais,
@@ -73,11 +89,13 @@ Assim, permanecem **não verificados**:
 - Cronometragem da leitura e ações do participante; a meta de cinco minutos
   não é um resultado medido.
 
-Para concluir essa validação, use uma pasta vazia na extensão autenticada e
-execute o README em Windows nativo e em WSL, em pastas independentes. Cronometre
-leitura, cópias e ações de interface, pausando durante esperas do Codex, downloads
-e preparação de ferramentas ausentes. Registre ambiente, versão da extensão,
-modelos/esforços disponíveis e tempos ativo/excluído separadamente. Inspecione
-os arquivos depois da preparação, repita a entrada para conferir preservação,
-e complete o ciclo. Confira em `EXECPLAN.md` as provas de cada requisito e, com
-Git, o hash e o conteúdo do commit. Registre falhas sem convertê-las em sucesso.
+Para concluir essa validação, abra uma pasta vazia na home Linux pela conexão
+WSL2 do VS Code Windows e use a extensão Codex autenticada nessa distribuição.
+Comprove o ambiente dos comandos do Codex e execute o README. Cronometre leitura,
+cópias e ações de interface, pausando durante esperas do Codex, downloads e
+preparação de ferramentas ausentes. Registre distribuição, home Linux efetiva,
+caminhos de Git/Python/skills, versão da extensão, modelos/esforços disponíveis
+e tempos ativo/excluído separadamente. Inspecione os arquivos depois da
+preparação, repita a entrada para conferir preservação e complete o ciclo.
+Confira em `EXECPLAN.md` as provas de cada requisito e, com o Git Linux, o hash
+e o conteúdo do commit. Registre falhas sem convertê-las em sucesso.
