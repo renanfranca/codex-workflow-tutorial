@@ -34,8 +34,7 @@ A revisão inclui as referências obrigatórias de `refactor-design`.
   [check_markdown_links.py](https://github.com/renanfranca/codex-skills/blob/075ea3ffb228e596bdb3b2b3ca769aad858b31cd/restructure-documentation/scripts/check_markdown_links.py)
   da fonte, recebendo `README.md` e `VALIDATION.md`, código 0.
 - Links externos de referência e instalação: oito URLs consultadas sem
-  autenticação, todas com HTTP 200. O acesso ao README deste novo repositório
-  será conferido após sua publicação.
+  autenticação, todas com HTTP 200.
 - Roteiro local: extração entre os marcadores conferida, oito etapas em ordem
   e 876 palavras incluindo os prompts. A 250 palavras por minuto, a leitura
   estimada é de 3,5 minutos, sem ações de interface. Essa estimativa não
@@ -45,6 +44,17 @@ A revisão inclui as referências obrigatórias de `refactor-design`.
   destino temporário; todos idênticos. Inclui metadados e ambas as referências
   de revisão estrutural. Reutilização de destinos idênticos conferida sem
   escrita. Isso valida a cópia, não a descoberta nem a ativação na extensão.
+
+## Publicação conferida
+
+- Repositório `renanfranca/codex-workflow-tutorial` público, branch principal
+  `main`, confirmados por GitHub CLI e requisição anônima à API do GitHub.
+- Página inicial acessível sem autenticação com HTTP 200 e título do README
+  presente; README bruto em `main` com HTTP 200 e conteúdo idêntico ao local.
+- Commit inicial `f137c7d`, `docs: add Codex workflow tutorial`, confirmado no
+  remoto `refs/heads/main`. Árvore local limpa após o envio inicial.
+- `git diff --cached --check` passou antes do commit. Nenhuma alteração ou
+  publicação foi feita no repositório de skills ou no de memória.
 
 ## Verificações ainda pendentes na extensão
 
